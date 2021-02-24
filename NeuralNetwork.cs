@@ -226,7 +226,7 @@ namespace SOFM
             int k = 0;
             for (int i = 0; i < line.Length; i++)
             {
-                if (line[i] == ' ') k++;
+                if (line[i] == ',') k++;
             }
   
             inputLayerDimension = k;
@@ -268,7 +268,7 @@ namespace SOFM
                 pattern = new List<double>(inputLayerDimension);
                 for (int ind = 0; ind < line.Length; ind++)
                 {
-                    if (line[ind] == ' ' && j != inputLayerDimension)
+                    if (line[ind] == ',' && j != inputLayerDimension)
                     {
                         endPos = ind;
                         pattern.Add(Convert.ToDouble(line.Substring(startPos, endPos - startPos)));
@@ -279,7 +279,7 @@ namespace SOFM
                 }
                 if (normalize) this.NormalizeInputPattern(pattern);
                 patterns.Add(pattern);
-                startPos = line.LastIndexOf(' ');
+                startPos = line.LastIndexOf(',');
                 classes.Add(line.Substring(startPos));
                 line = sr.ReadLine();
             }

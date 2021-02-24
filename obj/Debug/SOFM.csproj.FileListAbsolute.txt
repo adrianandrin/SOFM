@@ -1,3 +1,13 @@
+C:\Users\maxim\Desktop\Class stuff\Third Year First Sem C1\Intelligent Systems 2\My Activities\SOFM\bin\Debug\SOFM.exe.config
+C:\Users\maxim\Desktop\Class stuff\Third Year First Sem C1\Intelligent Systems 2\My Activities\SOFM\bin\Debug\SOFM.exe
+C:\Users\maxim\Desktop\Class stuff\Third Year First Sem C1\Intelligent Systems 2\My Activities\SOFM\bin\Debug\SOFM.pdb
+C:\Users\maxim\Desktop\Class stuff\Third Year First Sem C1\Intelligent Systems 2\My Activities\SOFM\obj\Debug\SOFM.csprojAssemblyReference.cache
+C:\Users\maxim\Desktop\Class stuff\Third Year First Sem C1\Intelligent Systems 2\My Activities\SOFM\obj\Debug\SOFM.Form1.resources
+C:\Users\maxim\Desktop\Class stuff\Third Year First Sem C1\Intelligent Systems 2\My Activities\SOFM\obj\Debug\SOFM.Properties.Resources.resources
+C:\Users\maxim\Desktop\Class stuff\Third Year First Sem C1\Intelligent Systems 2\My Activities\SOFM\obj\Debug\SOFM.csproj.GenerateResource.cache
+C:\Users\maxim\Desktop\Class stuff\Third Year First Sem C1\Intelligent Systems 2\My Activities\SOFM\obj\Debug\SOFM.csproj.CoreCompileInputs.cache
+C:\Users\maxim\Desktop\Class stuff\Third Year First Sem C1\Intelligent Systems 2\My Activities\SOFM\obj\Debug\SOFM.exe
+C:\Users\maxim\Desktop\Class stuff\Third Year First Sem C1\Intelligent Systems 2\My Activities\SOFM\obj\Debug\SOFM.pdb
 D:\Adrian-Andrin\Documents\School\Intelligent System 2\SOFM\SOFM\bin\Debug\SOFM.exe.config
 D:\Adrian-Andrin\Documents\School\Intelligent System 2\SOFM\SOFM\bin\Debug\SOFM.exe
 D:\Adrian-Andrin\Documents\School\Intelligent System 2\SOFM\SOFM\bin\Debug\SOFM.pdb
