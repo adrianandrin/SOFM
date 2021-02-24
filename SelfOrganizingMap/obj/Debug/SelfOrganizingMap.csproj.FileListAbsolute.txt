@@ -1,0 +1,12 @@
+D:\Adrian-Andrin\Documents\School\Intelligent System 2\SelfOrganizingMap\SelfOrganizingMap\bin\Debug\SelfOrganizingMap.exe.config
+D:\Adrian-Andrin\Documents\School\Intelligent System 2\SelfOrganizingMap\SelfOrganizingMap\bin\Debug\SelfOrganizingMap.exe
+D:\Adrian-Andrin\Documents\School\Intelligent System 2\SelfOrganizingMap\SelfOrganizingMap\bin\Debug\SelfOrganizingMap.pdb
+D:\Adrian-Andrin\Documents\School\Intelligent System 2\SelfOrganizingMap\SelfOrganizingMap\obj\Debug\SelfOrganizingMap.csprojAssemblyReference.cache
+D:\Adrian-Andrin\Documents\School\Intelligent System 2\SelfOrganizingMap\SelfOrganizingMap\obj\Debug\SelfOrganizingMap.Form1.resources
+D:\Adrian-Andrin\Documents\School\Intelligent System 2\SelfOrganizingMap\SelfOrganizingMap\obj\Debug\SelfOrganizingMap.Properties.Resources.resources
+D:\Adrian-Andrin\Documents\School\Intelligent System 2\SelfOrganizingMap\SelfOrganizingMap\obj\Debug\SelfOrganizingMap.Properties.Visualization.resources
+D:\Adrian-Andrin\Documents\School\Intelligent System 2\SelfOrganizingMap\SelfOrganizingMap\obj\Debug\SelfOrganizingMap.csproj.GenerateResource.cache
+D:\Adrian-Andrin\Documents\School\Intelligent System 2\SelfOrganizingMap\SelfOrganizingMap\obj\Debug\SelfOrganizingMap.csproj.CoreCompileInputs.cache
+D:\Adrian-Andrin\Documents\School\Intelligent System 2\SelfOrganizingMap\SelfOrganizingMap\obj\Debug\SelfOrganizingMap.csproj.CopyComplete
+D:\Adrian-Andrin\Documents\School\Intelligent System 2\SelfOrganizingMap\SelfOrganizingMap\obj\Debug\SelfOrganizingMap.exe
+D:\Adrian-Andrin\Documents\School\Intelligent System 2\SelfOrganizingMap\SelfOrganizingMap\obj\Debug\SelfOrganizingMap.pdb
