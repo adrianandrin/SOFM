@@ -29,13 +29,34 @@ namespace SOFM
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.imageMagnifier1 = new ImageMagnifier.ImageMagnifier();
+            this.SuspendLayout();
+            // 
+            // imageMagnifier1
+            // 
+            this.imageMagnifier1.ImageToMagnify = null;
+            this.imageMagnifier1.Location = new System.Drawing.Point(207, 125);
+            this.imageMagnifier1.MagnificationCoefficient = 1;
+            this.imageMagnifier1.Name = "imageMagnifier1";
+            this.imageMagnifier1.Size = new System.Drawing.Size(75, 23);
+            this.imageMagnifier1.TabIndex = 0;
+            this.imageMagnifier1.Text = "imageMagnifier1";
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.imageMagnifier1);
+            this.Name = "Form1";
             this.Text = "Form1";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private ImageMagnifier.ImageMagnifier imageMagnifier1;
     }
 }
 
