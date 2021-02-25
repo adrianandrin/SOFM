@@ -20,10 +20,13 @@ namespace SelfOrganizingMap
         private float xSpace, ySpace;
         private int lines;
         private int length;
+
+
         private NeuralNetwork n;
         public Form1()
         {
             InitializeComponent();
+            dropDown();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -31,8 +34,8 @@ namespace SelfOrganizingMap
             //var path = @"C:\Users\maxim\Desktop\Class stuff\Third Year First Sem C1\Intelligent Systems 2\My Activities\top10spotify\top10s.csv"; // Habeeb, "Dubai Media City, Dubai"
             // var path2 = @"C:\Users\maxim\Desktop\Class stuff\Third Year First Sem C1\Intelligent Systems 2\My Activities\top10spotify\genres.csv"; // Habeeb, "Dubai Media City, Dubai"
             
-            n = new NeuralNetwork((int)Math.Sqrt(100), 10, 0.1, Functions.MexicanHat);
-            var path = @"C:\Users\maxim\Desktop\Class stuff\Third Year First Sem C1\Intelligent Systems 2\My Activities\top10spotify\agetodisease.txt"; // Habeeb, "Dubai Media City, Dubai"
+            n = new NeuralNetwork((int)Math.Sqrt(1000), 10, 0.1, Functions.MexicanHat);
+            var path = @"D:\Adrian-Andrin\Documents\School\Intelligent System 2\SOFM\SelfOrganizingMap\sample.txt"; // Habeeb, "Dubai Media City, Dubai"
             n.ReadDataFromFile(path);
             //bpmVisualization
             bpmVisualization.Matrix = null;
@@ -116,6 +119,17 @@ namespace SelfOrganizingMap
                     }
                 */
         }
+
+        private void activation_Click(object sender, EventArgs e)
+        {
+            displaySubMenu(activationViewPanel);
+            Console.WriteLine(discreteFunctionRadioButton.Checked);
+            Console.WriteLine(mexicanHatRadioButton.Checked);
+            Console.WriteLine(frenchHatRadioButton.Checked);
+            Console.WriteLine(gaussFunctionRadioButton.Checked);
+        }
+
+
         private void AddLegend()
         {
             Label label = new Label();
@@ -143,6 +157,24 @@ namespace SelfOrganizingMap
                 panel.Height = (int)lbl.Font.Size;
                 panel.BackColor = n.UsedColors[i];
                 this.panel1.Controls.Add(panel);
+            }
+        }
+
+        private void dropDown()
+        {
+            activationViewPanel.Visible = false;
+
+        }
+
+        private void displaySubMenu(Panel subMenu)
+        {
+            if (subMenu.Visible == false)
+            {
+                subMenu.Visible = true;
+            }            
+            else
+            {
+                subMenu.Visible = false;
             }
         }
     }
