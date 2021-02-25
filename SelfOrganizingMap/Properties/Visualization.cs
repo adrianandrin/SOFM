@@ -64,7 +64,7 @@ namespace SelfOrganizingMap.Properties
                     for (int j = 0; j < (int)Math.Sqrt(matrix.Length); j++)
                     {
                         currentLeft = j * zoomFactor;
-                        pe.Graphics.DrawRectangle(new Pen(new SolidBrush(Color.WhiteSmoke), 2), new Rectangle(currentTop, currentLeft, zoomFactor, zoomFactor));
+                        pe.Graphics.DrawRectangle(new Pen(new SolidBrush(Color.Black), 2), new Rectangle(currentTop, currentLeft, zoomFactor, zoomFactor));
                         pe.Graphics.FillRectangle(new SolidBrush(matrix[i, j]), new RectangleF(currentTop, currentLeft, zoomFactor, zoomFactor));
                     }
                 }

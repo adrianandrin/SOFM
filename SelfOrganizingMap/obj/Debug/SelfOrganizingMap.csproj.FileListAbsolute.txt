@@ -10,3 +10,15 @@ D:\Adrian-Andrin\Documents\School\Intelligent System 2\SelfOrganizingMap\SelfOrg
 D:\Adrian-Andrin\Documents\School\Intelligent System 2\SelfOrganizingMap\SelfOrganizingMap\obj\Debug\SelfOrganizingMap.csproj.CopyComplete
 D:\Adrian-Andrin\Documents\School\Intelligent System 2\SelfOrganizingMap\SelfOrganizingMap\obj\Debug\SelfOrganizingMap.exe
 D:\Adrian-Andrin\Documents\School\Intelligent System 2\SelfOrganizingMap\SelfOrganizingMap\obj\Debug\SelfOrganizingMap.pdb
+C:\Users\maxim\Desktop\Class stuff\Third Year First Sem C1\Intelligent Systems 2\My Activities\SOFM\SOFM\SelfOrganizingMap\bin\Debug\SelfOrganizingMap.exe.config
+C:\Users\maxim\Desktop\Class stuff\Third Year First Sem C1\Intelligent Systems 2\My Activities\SOFM\SOFM\SelfOrganizingMap\bin\Debug\SelfOrganizingMap.exe
+C:\Users\maxim\Desktop\Class stuff\Third Year First Sem C1\Intelligent Systems 2\My Activities\SOFM\SOFM\SelfOrganizingMap\bin\Debug\SelfOrganizingMap.pdb
+C:\Users\maxim\Desktop\Class stuff\Third Year First Sem C1\Intelligent Systems 2\My Activities\SOFM\SOFM\SelfOrganizingMap\obj\Debug\SelfOrganizingMap.csprojAssemblyReference.cache
+C:\Users\maxim\Desktop\Class stuff\Third Year First Sem C1\Intelligent Systems 2\My Activities\SOFM\SOFM\SelfOrganizingMap\obj\Debug\SelfOrganizingMap.Form1.resources
+C:\Users\maxim\Desktop\Class stuff\Third Year First Sem C1\Intelligent Systems 2\My Activities\SOFM\SOFM\SelfOrganizingMap\obj\Debug\SelfOrganizingMap.Properties.Resources.resources
+C:\Users\maxim\Desktop\Class stuff\Third Year First Sem C1\Intelligent Systems 2\My Activities\SOFM\SOFM\SelfOrganizingMap\obj\Debug\SelfOrganizingMap.Properties.Visualization.resources
+C:\Users\maxim\Desktop\Class stuff\Third Year First Sem C1\Intelligent Systems 2\My Activities\SOFM\SOFM\SelfOrganizingMap\obj\Debug\SelfOrganizingMap.csproj.GenerateResource.cache
+C:\Users\maxim\Desktop\Class stuff\Third Year First Sem C1\Intelligent Systems 2\My Activities\SOFM\SOFM\SelfOrganizingMap\obj\Debug\SelfOrganizingMap.csproj.CoreCompileInputs.cache
+C:\Users\maxim\Desktop\Class stuff\Third Year First Sem C1\Intelligent Systems 2\My Activities\SOFM\SOFM\SelfOrganizingMap\obj\Debug\SelfOrganizingMap.csproj.CopyComplete
+C:\Users\maxim\Desktop\Class stuff\Third Year First Sem C1\Intelligent Systems 2\My Activities\SOFM\SOFM\SelfOrganizingMap\obj\Debug\SelfOrganizingMap.exe
+C:\Users\maxim\Desktop\Class stuff\Third Year First Sem C1\Intelligent Systems 2\My Activities\SOFM\SOFM\SelfOrganizingMap\obj\Debug\SelfOrganizingMap.pdb
