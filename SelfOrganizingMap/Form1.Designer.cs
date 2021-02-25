@@ -43,7 +43,7 @@ namespace SelfOrganizingMap
             this.panel3 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.bpmVisualization = new SelfOrganizingMap.Properties.Visualization();
+            this.bcVisualization = new SelfOrganizingMap.Properties.Visualization();
             this.label1 = new System.Windows.Forms.Label();
             this.sidebarPanel.SuspendLayout();
             this.activationViewPanel.SuspendLayout();
@@ -252,15 +252,15 @@ namespace SelfOrganizingMap
             this.label4.TabIndex = 2;
             this.label4.Text = "MAP";
             // 
-            // bpmVisualization
+            // bcVisualization
             // 
-            this.bpmVisualization.Location = new System.Drawing.Point(270, 16);
-            this.bpmVisualization.Matrix = null;
-            this.bpmVisualization.Name = "bpmVisualization";
-            this.bpmVisualization.Size = new System.Drawing.Size(615, 615);
-            this.bpmVisualization.TabIndex = 0;
-            this.bpmVisualization.Text = "visualization1";
-            this.bpmVisualization.ZoomFactor = 20;
+            this.bcVisualization.Location = new System.Drawing.Point(270, 16);
+            this.bcVisualization.Matrix = null;
+            this.bcVisualization.Name = "bcVisualization";
+            this.bcVisualization.Size = new System.Drawing.Size(615, 615);
+            this.bcVisualization.TabIndex = 0;
+            this.bcVisualization.Text = "visualization1";
+            this.bcVisualization.ZoomFactor = 20;
             // 
             // label1
             // 
@@ -281,7 +281,7 @@ namespace SelfOrganizingMap
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(219)))), ((int)(((byte)(172)))));
             this.ClientSize = new System.Drawing.Size(1027, 656);
             this.Controls.Add(this.sidebarPanel);
-            this.Controls.Add(this.bpmVisualization);
+            this.Controls.Add(this.bcVisualization);
             this.Controls.Add(this.panel1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -296,7 +296,7 @@ namespace SelfOrganizingMap
         }
 
         #endregion
-        private Properties.Visualization bpmVisualization;
+        private Properties.Visualization bcVisualization;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel sidebarPanel;

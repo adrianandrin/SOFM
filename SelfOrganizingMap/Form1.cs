@@ -38,7 +38,7 @@ namespace SelfOrganizingMap
             var path = @"D:\Adrian-Andrin\Documents\School\Intelligent System 2\SOFM\SelfOrganizingMap\sample.txt"; // Habeeb, "Dubai Media City, Dubai"
             n.ReadDataFromFile(path);
             //bpmVisualization
-            bpmVisualization.Matrix = null;
+            bcVisualization.Matrix = null;
             n.Normalize = true;
             n.StartLearning();
             Console.WriteLine(n.Patterns.Count);
@@ -57,9 +57,9 @@ namespace SelfOrganizingMap
                     Console.Write(colorMatrix[i, j].Name + " ");
                 Console.WriteLine();
             }
-            bpmVisualization.Matrix = colorMatrix;
+            bcVisualization.Matrix = colorMatrix;
             Console.WriteLine("RA");
-            bpmVisualization.Invalidate();
+            bcVisualization.Invalidate();
             AddLegend();
             n.Normalize = true;
             length = n.Patterns.Count;
