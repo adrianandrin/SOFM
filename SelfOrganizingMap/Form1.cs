@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,7 +21,7 @@ namespace SelfOrganizingMap
         private float xSpace, ySpace;
         private int lines;
         private int length;
-
+        private string path;
 
         private NeuralNetwork n;
         public Form1()
@@ -35,7 +36,12 @@ namespace SelfOrganizingMap
             // var path2 = @"C:\Users\maxim\Desktop\Class stuff\Third Year First Sem C1\Intelligent Systems 2\My Activities\top10spotify\genres.csv"; // Habeeb, "Dubai Media City, Dubai"
             
             n = new NeuralNetwork((int)Math.Sqrt(1000), 10, 0.1, Functions.MexicanHat);
-            var path = @"D:\Adrian-Andrin\Documents\School\Intelligent System 2\SOFM\SelfOrganizingMap\sample.txt"; // Habeeb, "Dubai Media City, Dubai"
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                path = openFileDialog1.FileName;
+            }
+           // Habeeb, "Dubai Media City, Dubai"
+            Console.WriteLine(path);
             n.ReadDataFromFile(path);
             //bpmVisualization
             bcVisualization.Matrix = null;
@@ -71,53 +77,80 @@ namespace SelfOrganizingMap
                 Console.Write("[x={0} y={1}] ", winners.Coordinate.X, winners.Coordinate.Y);
             }
             Console.WriteLine("RA");
-            /*
-                songs = new List<string[]>();
-                genres = new List<string[]>();
-                TextFieldParser csvParser = new TextFieldParser(path);
-                TextFieldParser parse = new TextFieldParser(path2);
+           
+        }
 
-                parse.CommentTokens = new string[] { "#" };
-                parse.SetDelimiters(new string[] { "," });
-                parse.HasFieldsEnclosedInQuotes = true;
-
-                csvParser.CommentTokens = new string[] { "#" };
-                csvParser.SetDelimiters(new string[] { "," });
-                csvParser.HasFieldsEnclosedInQuotes = true;
-
-                 // Skip the row with the column names
-                csvParser.ReadLine();
-
-                 while (!csvParser.EndOfData)
-                    {
-                        // Read current line fields, pointer moves to the next line.
-                        string[] fields = csvParser.ReadFields();
-                        songs.Add(fields);
-                    }
-                while (!parse.EndOfData)
+        private void predictButton_Click(object sender, EventArgs e)
+        {
+            string sourceFile = "", destinationFile = @"C:\Users\maxim\Desktop\Class stuff\Third Year First Sem C1\Intelligent Systems 2\My Activities\top10spotify\sampletest.txt";
+            if (path != null)
+            {
+                try
                 {
-                    // Read current line fields, pointer moves to the next line.
-                    string[] tem = parse.ReadFields();
-                    genres.Add(tem);
+                    File.Copy(path, destinationFile, true);
                 }
-                List<string> temp = new List<string>();
-                    for(int i = 0; i < songs.Count; i++)
-                    {
-                        for(int j = 0; j < 50; j++)
-                        {
-                            if(songs[i][3] == genres[j][1])
-                        {
-                            songs[i][3] = genres[j][0];
-                        }
-                        }              
-                    }
-                    //string[] genres = temp.Distinct().ToArray();
-                    Console.WriteLine(songs.Count());
-                    for (int i = 0; i < songs.Count(); i++)
-                    {
-                        Console.WriteLine(songs[i][3]);
-                    }
-                */
+                catch (IOException iox)
+                {
+                    Console.WriteLine(iox.Message);
+                }
+                path = destinationFile;
+
+                string testfile = "";
+                MessageBox.Show("Load Test Data");
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    openFileDialog1.Title = "Load Test Data";
+                    testfile = openFileDialog1.FileName;
+                }
+                string contents = File.ReadAllText(testfile);
+                File.AppendAllText(path, contents + "Input_Test");
+                n = new NeuralNetwork((int)Math.Sqrt(1000), 10, 0.1, Functions.MexicanHat);
+                // Habeeb, "Dubai Media City, Dubai"
+                Console.WriteLine(path);
+                n.ReadDataFromFile(path);
+                //bpmVisualization
+                bcVisualization.Matrix = null;
+                n.Normalize = true;
+                n.StartLearning();
+                Console.WriteLine(n.Patterns.Count);
+                Console.WriteLine("RE");
+                System.Drawing.Color[,] colorMatrix = null;
+                colorMatrix = n.ColorSOFM();
+                /* for (int i = 0; i < 10; i++)
+                 {
+                     for (int j = 0; j < 10; j++)
+                         Console.Write(Convert.ToString(colorMatrix[i, j]) + " ");
+                     Console.WriteLine();
+                 }*/
+                for (int i = 0; i < 10; i++)
+                {
+                    for (int j = 0; j < 10; j++)
+                        Console.Write(colorMatrix[i, j].Name + " ");
+                    Console.WriteLine();
+                }
+                bcVisualization.Matrix = colorMatrix;
+                Console.WriteLine("RA");
+                bcVisualization.Invalidate();
+                AddLegend();
+                n.Normalize = true;
+                length = n.Patterns.Count;
+                for (int i = 0; i < length; i++)
+                {
+                    if (i != 0 && i % 9 == 0)
+                        Console.WriteLine();
+                    winners = n.FindWinner(n.Patterns[i]);
+                    Console.Write("[x={0} y={1}] ", winners.Coordinate.X, winners.Coordinate.Y);
+                }
+                Console.WriteLine("RA");
+                File.Delete(destinationFile);
+            }
+            else
+            {
+                MessageBox.Show("LOAD DATA SET FIRST");
+            }
+          
+          
+
         }
 
         private void activation_Click(object sender, EventArgs e)
