@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
-using System.Drawing;
 
 namespace SOFM
 {
@@ -36,7 +35,7 @@ namespace SOFM
         private double CalculateNormOfVectors(List<double> vector1, List<double> vector2)
         {
             double value = 0;
-            for(int i=0; i<vector1.Count; i++)
+            for (int i = 0; i < vector1.Count; i++)
                 value += Math.Pow((vector1[i] - vector2[i]), 2);
             value = Math.Sqrt(value);
             return value;
@@ -64,7 +63,7 @@ namespace SOFM
             for (int i = 0; i < outputLayerDimension; i++)
                 for (int j = 0; j < outputLayerDimension; j++)
                 {
-                    currentEpsilon += outputLayer[i, j].ModifyWights(pattern, Winner.Coordinate, currentIteration, function);                   
+                    currentEpsilon += outputLayer[i, j].ModifyWights(pattern, Winner.Coordinate, currentIteration, function);
                 }
             currentIteration++;
             currentEpsilon = Math.Abs(currentEpsilon / (outputLayerDimension * outputLayerDimension));
@@ -121,12 +120,12 @@ namespace SOFM
             int d = 2;
             for (int i = 1; i < classes.Count; i++)
             {
-                k=0;
+                k = 0;
                 for (int j = 0; j < existentClasses.Count; j++)
-                    if (existentClasses.IndexOfKey(classes[i])!=-1) k++;
+                    if (existentClasses.IndexOfKey(classes[i]) != -1) k++;
                 if (k == 0)
                 {
-                    existentClasses.Add(classes[i],d);
+                    existentClasses.Add(classes[i], d);
                     d++;
                 }
             }
@@ -138,24 +137,29 @@ namespace SOFM
             System.Drawing.Color[,] colorMatrix = new System.Drawing.Color[outputLayerDimension, outputLayerDimension];
             int numOfClasses = NumberOfClasses();
             List<System.Drawing.Color> goodColors = new List<System.Drawing.Color>();
-
-
-            foreach (KnownColor color in Enum.GetValues(typeof(KnownColor)))
+            goodColors.Add(System.Drawing.Color.Black);
+            goodColors.Add(System.Drawing.Color.Red);
+            goodColors.Add(System.Drawing.Color.Navy);
+            goodColors.Add(System.Drawing.Color.Green);
+            goodColors.Add(System.Drawing.Color.Yellow);
+            goodColors.Add(System.Drawing.Color.Orange);
+            goodColors.Add(System.Drawing.Color.Maroon);
+            goodColors.Add(System.Drawing.Color.Magenta);
+            goodColors.Add(System.Drawing.Color.Purple);
+            goodColors.Add(System.Drawing.Color.DarkCyan);
+            /*
+            foreach (System.Drawing.KnownColor color in Enum.GetValues(typeof(System.Drawing.KnownColor)))
             {
                 System.Drawing.Color col = System.Drawing.Color.FromKnownColor(color);
-                goodColors.Add(col);
-            }
-            
+                 goodColors.Add(col);
+            }*/
             usedColors = new List<System.Drawing.Color>(numOfClasses);
             usedColors.Add(goodColors[0]);
             int k = 0;
             int randomColor = 0;
             Random r = new Random();
-            Console.WriteLine(numOfClasses);
             while (usedColors.Count != numOfClasses)
             {
-                
-                Console.WriteLine(usedColors.Count);
                 k = 0;
                 randomColor = r.Next(goodColors.Count);
                 foreach (System.Drawing.Color cl in usedColors)
@@ -165,12 +169,11 @@ namespace SOFM
             for (int i = 0; i < outputLayerDimension; i++)
                 for (int j = 0; j < outputLayerDimension; j++)
                     colorMatrix[i, j] = System.Drawing.Color.FromKnownColor(System.Drawing.KnownColor.ButtonFace);
-           
+
             for (int i = 0; i < patterns.Count; i++)
             {
-               Neuron n = FindWinner(patterns[i]);
-               colorMatrix[n.Coordinate.X,n.Coordinate.Y] = usedColors[existentClasses[classes[i]]-1];
-                Console.WriteLine(colorMatrix[n.Coordinate.X, n.Coordinate.Y]);
+                Neuron n = FindWinner(patterns[i]);
+                colorMatrix[n.Coordinate.X, n.Coordinate.Y] = usedColors[existentClasses[classes[i]] - 1];
             }
             return colorMatrix;
         }
@@ -207,7 +210,7 @@ namespace SOFM
         public void StartLearning()
         {
             int iterations = 0;
-            while (iterations<=numberOfIterations && currentEpsilon > epsilon)
+            while (iterations <= numberOfIterations && currentEpsilon > epsilon)
             {
                 List<List<double>> patternsToLearn = new List<List<double>>(numberOfPatterns);
                 foreach (List<double> pArray in patterns)
@@ -236,10 +239,10 @@ namespace SOFM
             {
                 if (line[i] == ' ') k++;
             }
-  
+
             inputLayerDimension = k;
             int sigma0 = outputLayerDimension;
-            
+
             outputLayer = new Neuron[outputLayerDimension, outputLayerDimension];
             Random r = new Random();
             for (int i = 0; i < outputLayerDimension; i++)
@@ -267,7 +270,7 @@ namespace SOFM
 
             sr = new StreamReader(inputDataFileName);
             line = sr.ReadLine();
-           
+
             while (line != null)
             {
                 int startPos = 0;
@@ -276,7 +279,7 @@ namespace SOFM
                 pattern = new List<double>(inputLayerDimension);
                 for (int ind = 0; ind < line.Length; ind++)
                 {
-                    if (line[ind] == ',' && j != inputLayerDimension)
+                    if (line[ind] == ' ' && j != inputLayerDimension)
                     {
                         endPos = ind;
                         pattern.Add(Convert.ToDouble(line.Substring(startPos, endPos - startPos)));
@@ -287,7 +290,7 @@ namespace SOFM
                 }
                 if (normalize) this.NormalizeInputPattern(pattern);
                 patterns.Add(pattern);
-                startPos = line.LastIndexOf(',');
+                startPos = line.LastIndexOf(' ');
                 classes.Add(line.Substring(startPos));
                 line = sr.ReadLine();
             }

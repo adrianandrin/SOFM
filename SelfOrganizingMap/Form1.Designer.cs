@@ -192,7 +192,7 @@ namespace SelfOrganizingMap
             this.bpmVisualization.Size = new System.Drawing.Size(441, 394);
             this.bpmVisualization.TabIndex = 0;
             this.bpmVisualization.Text = "visualization1";
-            this.bpmVisualization.ZoomFactor = 10;
+            this.bpmVisualization.ZoomFactor = 25;
             // 
             // Form1
             // 

@@ -30,8 +30,9 @@ namespace SelfOrganizingMap
         {
             //var path = @"C:\Users\maxim\Desktop\Class stuff\Third Year First Sem C1\Intelligent Systems 2\My Activities\top10spotify\top10s.csv"; // Habeeb, "Dubai Media City, Dubai"
             // var path2 = @"C:\Users\maxim\Desktop\Class stuff\Third Year First Sem C1\Intelligent Systems 2\My Activities\top10spotify\genres.csv"; // Habeeb, "Dubai Media City, Dubai"
-            n = new NeuralNetwork((int)Math.Sqrt(100), 10, 0.1, Functions.Discrete);
-            var path = @"C:\Users\maxim\Desktop\Class stuff\Third Year First Sem C1\Intelligent Systems 2\My Activities\top10spotify\tempVals1.csv"; // Habeeb, "Dubai Media City, Dubai"
+            
+            n = new NeuralNetwork((int)Math.Sqrt(100), 10, 0.1, Functions.MexicanHat);
+            var path = @"C:\Users\maxim\Desktop\Class stuff\Third Year First Sem C1\Intelligent Systems 2\My Activities\top10spotify\agetodisease.txt"; // Habeeb, "Dubai Media City, Dubai"
             n.ReadDataFromFile(path);
             //bpmVisualization
             bpmVisualization.Matrix = null;
@@ -66,6 +67,7 @@ namespace SelfOrganizingMap
                 winners = n.FindWinner(n.Patterns[i]);
                 Console.Write("[x={0} y={1}] ", winners.Coordinate.X, winners.Coordinate.Y);
             }
+            Console.WriteLine("RA");
             /*
                 songs = new List<string[]>();
                 genres = new List<string[]>();
