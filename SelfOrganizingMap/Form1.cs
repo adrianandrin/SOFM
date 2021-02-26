@@ -13,76 +13,51 @@ namespace SelfOrganizingMap
 {
     public partial class Form1 : Form
     {
-        private Point[,] bpm, energy, genre, dancability;
-        private SOFM.NeuralNetwork nn;
-        private List<string[]> songs;
-        private List<string[]> genres;
-        private Neuron winners;
-        private float xSpace, ySpace;
-        private int lines;
+
         private int length;
         private string path;
+        private Functions act;
 
         private NeuralNetwork n;
         public Form1()
         {
             InitializeComponent();
             dropDown();
+            setActivation();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //var path = @"C:\Users\maxim\Desktop\Class stuff\Third Year First Sem C1\Intelligent Systems 2\My Activities\top10spotify\top10s.csv"; // Habeeb, "Dubai Media City, Dubai"
-            // var path2 = @"C:\Users\maxim\Desktop\Class stuff\Third Year First Sem C1\Intelligent Systems 2\My Activities\top10spotify\genres.csv"; // Habeeb, "Dubai Media City, Dubai"
-            
-            n = new NeuralNetwork((int)Math.Sqrt(1000), 10, 0.1, Functions.MexicanHat);
+            dropDown();
+            setActivation();
+            n = new NeuralNetwork((int)Math.Sqrt(100), 10, 0.1, act);
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 path = openFileDialog1.FileName;
             }
-           // Habeeb, "Dubai Media City, Dubai"
-            Console.WriteLine(path);
+  
             n.ReadDataFromFile(path);
-            //bpmVisualization
             bcVisualization.Matrix = null;
             n.Normalize = true;
             n.StartLearning();
-            Console.WriteLine(n.Patterns.Count);
-            Console.WriteLine("RE");
+
+
             System.Drawing.Color[,] colorMatrix = null;
             colorMatrix = n.ColorSOFM();
-            /* for (int i = 0; i < 10; i++)
-             {
-                 for (int j = 0; j < 10; j++)
-                     Console.Write(Convert.ToString(colorMatrix[i, j]) + " ");
-                 Console.WriteLine();
-             }*/
-            for (int i = 0; i < 10; i++)
-            {
-                for (int j = 0; j < 10; j++)
-                    Console.Write(colorMatrix[i, j].Name + " ");
-                Console.WriteLine();
-            }
             bcVisualization.Matrix = colorMatrix;
-            Console.WriteLine("RA");
+
             bcVisualization.Invalidate();
             AddLegend();
             n.Normalize = true;
             length = n.Patterns.Count;
-            for (int i = 0; i < length; i++)
-            {
-                if (i != 0 && i % 9 == 0)
-                    Console.WriteLine();
-                winners = n.FindWinner(n.Patterns[i]);
-                Console.Write("[x={0} y={1}] ", winners.Coordinate.X, winners.Coordinate.Y);
-            }
-            Console.WriteLine("RA");
            
         }
 
         private void predictButton_Click(object sender, EventArgs e)
         {
-            string sourceFile = "", destinationFile = @"C:\Users\maxim\Desktop\Class stuff\Third Year First Sem C1\Intelligent Systems 2\My Activities\top10spotify\sampletest.txt";
+            dropDown();
+            setActivation();
+            string sourceFile = "", destinationFile = @"D:\Adrian-Andrin\Documents\School\Intelligent System 2\SOFM\SelfOrganizingMap\sampletest.txt";
             if (path != null)
             {
                 try
@@ -103,46 +78,27 @@ namespace SelfOrganizingMap
                     testfile = openFileDialog1.FileName;
                 }
                 string contents = File.ReadAllText(testfile);
-                File.AppendAllText(path, contents + "Input_Test");
-                n = new NeuralNetwork((int)Math.Sqrt(1000), 10, 0.1, Functions.MexicanHat);
-                // Habeeb, "Dubai Media City, Dubai"
-                Console.WriteLine(path);
+                File.AppendAllText(path, contents + "Un-Identified");
+                n.ExistentClasses.Clear();
+                n = new NeuralNetwork((int)Math.Sqrt(100), 10, 0.1, act);
+             
                 n.ReadDataFromFile(path);
-                //bpmVisualization
+
                 bcVisualization.Matrix = null;
                 n.Normalize = true;
                 n.StartLearning();
-                Console.WriteLine(n.Patterns.Count);
-                Console.WriteLine("RE");
                 System.Drawing.Color[,] colorMatrix = null;
                 colorMatrix = n.ColorSOFM();
-                /* for (int i = 0; i < 10; i++)
-                 {
-                     for (int j = 0; j < 10; j++)
-                         Console.Write(Convert.ToString(colorMatrix[i, j]) + " ");
-                     Console.WriteLine();
-                 }*/
-                for (int i = 0; i < 10; i++)
-                {
-                    for (int j = 0; j < 10; j++)
-                        Console.Write(colorMatrix[i, j].Name + " ");
-                    Console.WriteLine();
-                }
+
+               
                 bcVisualization.Matrix = colorMatrix;
-                Console.WriteLine("RA");
+
                 bcVisualization.Invalidate();
                 AddLegend();
                 n.Normalize = true;
                 length = n.Patterns.Count;
-                for (int i = 0; i < length; i++)
-                {
-                    if (i != 0 && i % 9 == 0)
-                        Console.WriteLine();
-                    winners = n.FindWinner(n.Patterns[i]);
-                    Console.Write("[x={0} y={1}] ", winners.Coordinate.X, winners.Coordinate.Y);
-                }
-                Console.WriteLine("RA");
-                File.Delete(destinationFile);
+                
+                //File.Delete(destinationFile);
             }
             else
             {
@@ -151,6 +107,26 @@ namespace SelfOrganizingMap
           
           
 
+        }
+
+        private void setActivation()
+        {
+            if (discreteFunctionRadioButton.Checked)
+            {
+                act = Functions.Discrete;
+            }
+            else if (mexicanHatRadioButton.Checked)
+            {
+                act = Functions.MexicanHat;
+            }
+            else if (frenchHatRadioButton.Checked)
+            {
+                act = Functions.FrenchHat;
+            }
+            else if (gaussFunctionRadioButton.Checked)
+            {
+                act = Functions.Gaus;
+            }
         }
 
         private void activation_Click(object sender, EventArgs e)
@@ -191,6 +167,8 @@ namespace SelfOrganizingMap
                 panel.BackColor = n.UsedColors[i];
                 this.panel1.Controls.Add(panel);
             }
+
+            panel1.Invalidate();
         }
 
         private void dropDown()
